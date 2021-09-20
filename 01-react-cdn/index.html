@@ -5,19 +5,79 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>React CDN</title>
+    <!--React-->
     <script crossorigin src="https://unpkg.com/react@17/umd/react.production.min.js"></script>
     <script crossorigin src="https://unpkg.com/react-dom@17/umd/react-dom.production.min.js"></script>
+    <!--Babel-->
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+
 </head>
 <body>
     <div id="root"></div>
-    <script>
+    <!--Crea un elemento con react-->
+    <!-- <script>
         ReactDOM.render(
             React.createElement("h1",null,"Hola Mundo"),
             document.getElementById("root")
         );
         //console.log(ReactDOM);
-        //Pruebaaaaaaaaaaaaaaa
-        //aaaaaaaaaaaaa
+    </script> -->
+    <!-- <script>
+        ReactDOM.render(
+            React.createElement("ol",null,
+                React.createElement("li",null,"Uva"),
+                React.createElement("li",null,"Limon"),
+                React.createElement("li",null,"Mango")
+            ),
+            document.getElementById("root")
+        );
+        //console.log(ReactDOM);
+    </script> -->
+    <!--Babel-->
+    <script type="text/babel">
+        //Ejemplo componente
+        /*class Saludo extends React.Component {
+            render(){
+                return (
+                    <h1>Hola mundo - Legacy</h1>
+                )
+            }
+        }*/
+        //Ejemplo de react
+        // ReactDOM.render(
+        //     <div>
+        //         <ul>
+        //             <li>Manzana</li>
+        //             <li>Uva</li>
+        //             <li>Mango</li>
+        //         </ul>
+        //     </div>,
+        //     document.getElementById("root")
+        // );
+        /*const Saludo=()=>{
+            return (
+                <ol>
+                    <li></li>
+                    <li></li>
+                    <li></li>
+                </ol>
+            )
+        };*/
+        const Interpolar=()=>{
+            //const nombre=prompt("Cual es tu nombre?");
+            const [numero,setNUmero]=React.useState(0);
+            setInterval(()=>{
+                setNUmero(numero+1);
+            },1500)
+            console.log(numero);
+            return (
+                <div>
+                    <h1> fecha: {numero}</h1>
+                    <hr/>
+                </div>
+            );
+        };
+        ReactDOM.render(<Interpolar/>,document.getElementById("root"));
     </script>
 </body>
 </html>
